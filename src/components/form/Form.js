@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Form.module.css'
 
-const Form = ({setCardNUmber, cardNumber, setCardHandler, cardHandler, cardCvv, setCardCvv, month, year, btn}) => {
+const Form = ({setCardNUmber, cardNumber, setCardHandler, cardHandler, cardCvv, setCardCvv, month, year, btn, setCardMonth, setCardYear}) => {
     return (
         <form className={`container pt-3 ${style.container} `}>
             <div className="mb-3">
@@ -27,13 +27,14 @@ const Form = ({setCardNUmber, cardNumber, setCardHandler, cardHandler, cardCvv, 
             </div>
             <div className="select">
 
-                <select className={`form-select ${style.formSelect}`} aria-label="Default select example">
+                <select className={`form-select ${style.formSelect}`} aria-label="Default select example"
+                onChange={e => setCardMonth(e.target.value)}>
                     <option>Month</option>
                     {month.map(item => <option key={item.index} value={item}>{item}</option>
                     )}
                 </select>
 
-                <select className="form-select" aria-label="Default select example">
+                <select className="form-select" aria-label="Default select example" onChange={e => setCardYear(e.target.value)}>
                     <option selected>Year</option>
                     {year.map(item => <option key={item.index} value={item}>{item}</option>
                     )}

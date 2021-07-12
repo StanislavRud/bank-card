@@ -1,12 +1,20 @@
 .card {
     margin: 0 auto;
     max-width: 500px;
-    height: 250px;
+    height: 320px;
     border: 1px solid black;
     border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardForms {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: 25px;
+
 }
