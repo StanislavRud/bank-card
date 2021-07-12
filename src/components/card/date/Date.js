@@ -3,7 +3,7 @@ import React from 'react';
 const Date = ({cardMonth, cardYear}) => {
     return (
         <div>
-          <h2>{cardMonth} / {cardYear}</h2>
+          <h5>{cardMonth} / {cardYear}</h5>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import './App.css';
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
@@ -14,8 +14,6 @@ function App() {
 
     const [cardMonth, setCardMonth] = useState('Month')
     const [cardYear, setCardYear] = useState('Year')
-
-
 
     useEffect(() => {
         (cardNumber !== '' && cardNumber.length === 16
