@@ -1,28 +1,45 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css';
+import Card from "./components/card/Card";
+import Form from "./components/form/Form";
 
 function App() {
-    const [cardNumber, setCardNUmber] = useState(null);
+    const [cardNumber, setCardNUmber] = useState('');
+    const [cardHandler, setCardHandler] = useState('');
+    const [cardCvv, setCardCvv] = useState('');
+    const month = [...Array(12)].map((_, i) => i + 1);
+    const year = [...Array(5)].map((_, i) => i + 2019);
 
-    const inputCard = setCardNUmber
+    const [btn, setBtn] = useState(false);
 
-  return (
-    <div className="App container pt-3">
-        <h1>Bank card</h1>
-        <div className={'card'}>
-            <h2>Card: {cardNumber}</h2>
-            <h2>Holder: </h2>
-            <span>CVV: </span>
+    useEffect(() => {
+        (cardNumber !== '' && cardNumber.length === 16
+            && cardHandler !== ''
+            && cardCvv !== ''
+            && cardCvv.length === 3)
+            ? setBtn(true) : setBtn(false)
+
+    })
+
+
+    return (
+        <div className="App container pt-3">
+            <h1>Bank card</h1>
+            <Card cardNumber={cardNumber} cardHandler={cardHandler} cardCvv={cardCvv}/>
+            <Form setCardNUmber={setCardNUmber}
+                  cardNumber={cardNumber}
+                  setCardHandler={setCardHandler}
+                  cardHandler={cardHandler}
+                  cardCvv={cardCvv}
+                  setCardCvv={setCardCvv}
+                  month={month}
+                  year={year}
+                  btn={btn}
+            />
+
+
         </div>
-        <hr/>
-        <form>
-            <input type="text" placeholder={'input number your card'}/>
-            <input type="text" placeholder={'input name card holder'}/>
-            <input type="text" placeholder={'CVV'}/>
-        </form>
-
-    </div>
-  );
+    );
 }
 
 export default App;
